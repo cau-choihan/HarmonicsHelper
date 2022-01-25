@@ -1,0 +1,31 @@
+h1{
+    text-align:center; 
+    color : #96a5ff;
+    margin-top : 20px;
+    border-top:10px solid #96a5ff;
+    border-bottom:10px solid #96a5ff;
+    padding-bottom:20px;
+    padding-top:20px;
+   }
+   h2{
+     color : #96a5ff;
+   }
+   .divider{
+     border-left : 5px #88a590 solid;
+     width : 700px;
+     padding-left : 10px;
+     margin-left : 30px;
+   }
+   div{
+     margin-left : 40px;
+   }
+   button{
+     width:65px;
+     height:30px;
+     border: 3px solid gray;
+     border-radius:15px;
+   }
+   #majorInterval{ 
+   }
+   #secondaryDominant7th{
+   }
