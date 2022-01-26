@@ -29,3 +29,17 @@ h1{
    }
    #secondaryDominant7th{
    }
+   #Atable{
+       border: 1px solid gray;
+       text-align : center;
+   }
+   #Btable{
+       border: 1px solid gray;
+       text-align : center;
+   }
+#Atable td{
+    width: 75px;
+}
+#Btable td{
+    width : 40px;
+}
