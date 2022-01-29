@@ -1,5 +1,7 @@
 let interval= ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
 let intervalNum=[0,1,2,3,4,5,6,7,8,9,10,11];
+let subtituteCount=0;
+let standardNum;
 
 //intervalNum 범위 고정 method
 function twelveUpdown(num){
@@ -8,45 +10,81 @@ function twelveUpdown(num){
 }
 //숫자를 인터벌로 변환시켜 스케일과 다이어토닉 출력하는 method
 function majorScale(i){
-document.getElementById("majorInterval").innerHTML=
-  "<table id=\"Atable\">"+"<tr>"+"<td align=\"center\" colspan=\"7\">"+
-  interval[twelveUpdown(i)]+"메이저스케일"+"</td></tr><br>"+
-  "<tr><td>I</td><td>II</td><td>III</td><td>IV</td><td>V</td><td>VI</td><td>VII</td></tr>"
-  +"<tr><td>"+
-  interval[twelveUpdown(i)]+"&nbsp "+"</td><td>"+          
-  interval[twelveUpdown(i+2)]+"&nbsp "+"</td><td>"+
-  interval[twelveUpdown(i+4)]+"&nbsp "+"</td><td>"+
-  interval[twelveUpdown(i+5)]+"&nbsp "+"</td><td>"+
-  interval[twelveUpdown(i+7)]+"&nbsp "+"</td><td>"+
-  interval[twelveUpdown(i+9)]+"&nbsp "+"</td><td>"+
-  interval[twelveUpdown(i+11)]+"</td></tr></table><br><br>"+
-  "<table id=\"Atable\"><tr><td align=\"center\" colspan=\"7\">"+
-  interval[twelveUpdown(i)]+"메이저다이어토닉코드</td></tr><br>"+
-  "<tr><td>IM7</td><td>IIm7</td><td>IIIm7</td><td>IVM7</td><td>V7</td><td>VIm7</td><td>VIIm7-5</td></tr>"
-  +"<tr><td>"+interval[twelveUpdown(i)]+"M7</td><td>"+
-  interval[twelveUpdown(i+2)]+"m7</td><td>"+
-  interval[twelveUpdown(i+4)]+"m7</td><td>"+
-  interval[twelveUpdown(i+5)]+"M7</td><td>"+
-  interval[twelveUpdown(i+7)]+"7</td><td>"+
-  interval[twelveUpdown(i+9)]+"m7</td><td>"+
-  interval[twelveUpdown(i+11)]+"m7-5</td></tr></table>";
-  secondaryDominant7th(i);
+  document.getElementById("ID1").innerHTML=interval[twelveUpdown(i)];
+  document.getElementById("ID2").innerHTML=interval[twelveUpdown(i+2)];
+  document.getElementById("ID3").innerHTML=interval[twelveUpdown(i+4)];
+  document.getElementById("ID4").innerHTML=interval[twelveUpdown(i+5)];
+  document.getElementById("ID5").innerHTML=interval[twelveUpdown(i+7)];
+  document.getElementById("ID6").innerHTML=interval[twelveUpdown(i+9)];
+  document.getElementById("ID7").innerHTML=interval[twelveUpdown(i+11)];
 }
 //세컨더리 도미넌트 출력
 function secondaryDominant7th(i){
-document.getElementById("secondaryDominant7th").innerHTML=
-"<table id=\"Btable\"><tr><td align=\"center\" colspan=\"11\">"+
-"세컨더리 도미넌트&Related 2-5-1</td></tr>"+
-"<tr><td>IIIm7</td><td>--</td><td>VI7</td><td>-></td><td>IIm7</td><td>:</td><td>"+interval[twelveUpdown(i+4)]+"m7</td><td>--</td><td>"+interval[twelveUpdown(i+9)]+"7</td><td>-></td><td>"+interval[twelveUpdown(i+2)]+"m7</td></tr><br>"+
-  "<tr><td>IV#m7</td><td>--</td><td>VII7</td><td>-></td><td>IIIm7</td><td>:</td><td>"+interval[twelveUpdown(i+6)]+"m7</td><td>--</td><td>"+interval[twelveUpdown(i+11)]+"7</td><td>-></td><td>"+interval[twelveUpdown(i+4)]+"m7</td></tr><br>"+
-  "<tr><td>Vm7</td><td>--</td><td>I7</td><td>-></td><td>IV7</td><td>:</td><td>"+interval[twelveUpdown(i+7)]+"m7</td><td>--</td><td>"+interval[twelveUpdown(i)]+"7</td><td>-></td><td>"+interval[twelveUpdown(i+5)]+"M7</td></tr><br>"+
-  "<tr><td>VI7</td><td>--</td><td>II7</td><td>-></td><td>V7</td><td>:</td><td>"+interval[twelveUpdown(i+9)]+"m7</td><td>--</td><td>"+interval[twelveUpdown(i+2)]+"7</td><td>-></td><td>"+interval[twelveUpdown(i+7)]+"7</td></tr><br>"+
-  "<tr><td>VIIm7</td><td>--</td><td>III7</td><td>-></td><td>VIm7</td><td>:</td><td>"+interval[twelveUpdown(i+11)]+"m7</td><td>--</td><td>"+interval[twelveUpdown(i+4)]+"7</td><td>-></td><td>"+interval[twelveUpdown(i+9)]+"m7</td></tr>"+
-  "</table>";
+  document.getElementById("SD1").innerHTML=interval[twelveUpdown(i+7)]+"7";
+  document.getElementById("SD2").innerHTML=interval[twelveUpdown(i+9)]+"7";
+  document.getElementById("SD3").innerHTML=interval[twelveUpdown(i+11)]+"7";
+  document.getElementById("SD4").innerHTML=interval[twelveUpdown(i)]+"7";
+  document.getElementById("SD5").innerHTML=interval[twelveUpdown(i+2)]+"7";
+  document.getElementById("SD6").innerHTML=interval[twelveUpdown(i+4)]+"7";
+  document.getElementById("SDA4").innerHTML=interval[twelveUpdown(i+2)]+"m7";
+  document.getElementById("SDA5").innerHTML=interval[twelveUpdown(i+2)]+"m7";
+  document.getElementById("SDA6").innerHTML=interval[twelveUpdown(i+4)]+"m7";
+  document.getElementById("SDA1").innerHTML=interval[twelveUpdown(i+5)]+"M7";
+  document.getElementById("SDA2").innerHTML=interval[twelveUpdown(i+7)]+"7";
+  document.getElementById("SDA3").innerHTML=interval[twelveUpdown(i+9)]+"m7";
+  document.getElementById("I251").innerHTML=interval[twelveUpdown(i+2)]+"m7";
+  document.getElementById("III251").innerHTML=interval[twelveUpdown(i+4)]+"m7";
+  document.getElementById("IV#251").innerHTML=interval[twelveUpdown(i+6)]+"m7";
+  document.getElementById("V251").innerHTML=interval[twelveUpdown(i+7)]+"m7";
+  document.getElementById("VI251").innerHTML=interval[twelveUpdown(i+9)]+"m7";
+  document.getElementById("VII251").innerHTML=interval[twelveUpdown(i+11)]+"m7";
+  
+
+}
+function secondaryDominant7thSubtitute(i){
+  document.getElementById("SD1").innerHTML=interval[twelveUpdown(i+1)]+"7";
+  document.getElementById("SD2").innerHTML=interval[twelveUpdown(i+3)]+"7";
+  document.getElementById("SD3").innerHTML=interval[twelveUpdown(i+5)]+"7";
+  document.getElementById("SD4").innerHTML=interval[twelveUpdown(i+6)]+"7";
+  document.getElementById("SD5").innerHTML=interval[twelveUpdown(i+8)]+"7";
+  document.getElementById("SD6").innerHTML=interval[twelveUpdown(i+10)]+"7";
+ 
 }
 //클릭 반응
 function intervalSelect(value){
   for(let i=0;i<12;i++){
-  if(value===interval[i]){majorScale(intervalNum[i]);}
+  if(value===interval[i]){
+    majorScale(intervalNum[i]);
+    secondaryDominant7th(intervalNum[i]);
+    standardNum=intervalNum[i];
+  subtituteCount=0;
+  document.getElementById("V7").innerHTML="V7";
+  document.getElementById("VI7").innerHTML="VI7";
+  document.getElementById("VII7").innerHTML="VII7";
+  document.getElementById("I7").innerHTML="I7";
+  document.getElementById("II7").innerHTML="II7";
+  document.getElementById("III7").innerHTML="IIIb7";}
   }
 }
+
+function sdClick(){
+  subtituteCount++;
+  if(subtituteCount%2==1){
+    secondaryDominant7thSubtitute(intervalNum[standardNum]);
+    document.getElementById("V7").innerHTML="IIb7";
+    document.getElementById("VI7").innerHTML="IIIb7";
+    document.getElementById("VII7").innerHTML="IV7";
+    document.getElementById("I7").innerHTML="Vb7";
+    document.getElementById("II7").innerHTML="VIb7";
+    document.getElementById("III7").innerHTML="VIIb7";
+    }
+  else{
+    secondaryDominant7th(standardNum);
+    document.getElementById("V7").innerHTML="V7";
+    document.getElementById("VI7").innerHTML="VI7";
+    document.getElementById("VII7").innerHTML="VII7";
+    document.getElementById("I7").innerHTML="I7";
+    document.getElementById("II7").innerHTML="II7";
+    document.getElementById("III7").innerHTML="IIIb7";
+  }
+  }

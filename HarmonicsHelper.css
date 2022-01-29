@@ -20,10 +20,7 @@ h1{
      margin-left : 40px;
    }
    button{
-     width:65px;
-     height:30px;
-     border: 3px solid gray;
-     border-radius:15px;
+     width:80px;
    }
    #majorInterval{ 
    }
@@ -44,9 +41,6 @@ h1{
     width : 40px;
 }
 #selection{
-  
-}
-select{
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
@@ -84,4 +78,40 @@ p{
   padding:0px;
   margin-top:3px;
   margin-bottom:3px;
+}
+table{
+  border: 1px black solid;
+  text-align:center;
+  vertical-align:middle;
+}
+td{
+  width:50px;
+}
+.iRight{
+  text-align:right;
+  width:30px;
+}
+.iLeft{
+  text-align:left;
+  width:40px;
+}
+.tabLeft{
+  border-right:black solid 1px;
+  width:30px;
+}
+#forFlex{
+  display:flex;
+}
+.SD{
+  width:42px;
+}
+#rLine{
+  border-right:1px black solid;
+  padding-right:5px;
+}
+.desi{
+  width:18px;
+}
+.Ctable tr{
+  height:27px;
 }

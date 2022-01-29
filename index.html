@@ -15,7 +15,7 @@
   <p>Dev.<b>최한</b></p>
   <p>v1.0.1패치내용 : 세컨더리 도미넌트 추가</p>
   <p>v1.0.2패치내용 : related 2-5-1 및 세컨더리 도미넌트 대리코드 추가</p>
-  <p>v1.1.2패치내용 : 페이지 인터페이스 수정</p>
+  <p>v1.1.0패치내용 : 페이지 인터페이스 수정</p>
   <span>
     <h2 class="divider">1. major scale maker</h2>
   </span>
@@ -29,7 +29,7 @@
   </div>
   <div>Key selection =>
     <select id="selection" onchange="intervalSelect(this.value);">
-      <option value=" ">select..</option>
+      <option value=" ">select</option>
       <option value="C" >C 도</option>
       <option value="Db">Db</option>
       <option value="D">D 레</option>
@@ -44,8 +44,128 @@
       <option value="B">B 시</option>
     </select>
   </div>
-  <div id="majorInterval"></div>
-  <div id="secondaryDominant7th"></div>
+  <br>
+  <div id="forFlex">
+  <div>
+    Interval&Diatonic
+    <table>
+      <tr>
+        <td class="tabLeft">I</td>
+        <td class="iRight" id="ID1"></td>
+        <td class="iLeft">M7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">II</td>
+        <td class="iRight"  id="ID2"></td>
+        <td class="iLeft">m7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">III</td>
+        <td class="iRight"  id="ID3"></td>
+        <td class="iLeft">m7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">IV</td>
+        <td class="iRight"  id="ID4"></td>
+        <td class="iLeft">M7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">V</td>
+        <td class="iRight"  id="ID5"></td>
+        <td class="iLeft">7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">VI</td>
+        <td class="iRight"  id="ID6"></td>
+        <td class="iLeft">m7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">VII</td>
+        <td class="iRight"  id="ID7"></td>
+        <td class="iLeft">m7-5</td>
+      </tr>
+    </table>
+    </div>
+    <div>
+      Secondary dominant 7th & related 2-5-1
+        <button onclick="sdClick()">대리코드</button>
+    <table  class="Ctable">
+      <tr>
+        <td class="SD" >IIm7</td>
+        <td class="desi" >-</td>
+        <td class="SD" id="V7">V7</td>
+        <td class="desi">-></td>
+        <td class="SD" id="rLine">IM7</td>
+        <td id="I251" ></td>
+        <td class="desi" >-</td>
+        <td class="iRight"  id="SD1"></td>
+        <td class="SD" >-></td>
+        <td class="iLeft" id="SDA4">M7</td>
+      </tr>
+      <tr>
+        <td class="SD" >IIIm7(-5)</td>
+        <td class="desi" >-</td>
+        <td class="SD" id="VI7">VI7</td>
+        <td class="desi">-></td>
+        <td class="SD" id="rLine">IIm7</td>
+        <td id="III251" ></td>
+        <td class="desi" >-</td>
+        <td class="iRight"  id="SD2"></td>
+        <td class="SD" >-></td>
+        <td class="iLeft" id="SDA5">m7</td>
+      </tr>
+      <tr>
+        <td class="SD" >IV#m7(-5)</td>
+        <td class="desi" >-</td>
+        <td class="SD" id="VII7">VII7</td>
+        <td class="desi">-></td>
+        <td class="SD" id="rLine">IIIm7</td>
+        <td id="IV#251" ></td>
+        <td class="desi" >-</td>
+        <td class="iRight"  id="SD3"></td>
+        <td class="SD">-></td>
+        <td class="iLeft" id="SDA6">m7</td>
+      </tr>
+      <tr>
+        <td class="SD" >Vm7</td>
+        <td class="desi" >-</td>
+        <td class="SD" id="I7">I7</td>
+        <td class="desi">-></td>
+        <td class="SD" id="rLine">IVM7</td>
+        <td id="V251" ></td>
+        <td class="desi" >-</td>
+        <td class="iRight"  id="SD4"></td>
+        <td class="SD">-></td>
+        <td class="iLeft" id="SDA1">M7</td>
+      </tr>
+      <tr>
+        <td class="SD" >VIm7</td>
+        <td class="desi" >-</td>
+        <td class="SD" id="II7">II7</td>
+        <td class="desi">-></td>
+        <td class="SD" id="rLine">V7</td>
+        <td id="VI251" ></td>
+        <td class="desi" >-</td>
+        <td class="iRight"  id="SD5"></td>
+        <td class="SD">-></td>
+        <td class="iLeft" id="SDA2">7</td>
+      </tr>
+      <tr>
+        <td class="SD" >VIIm7(-5)</td>
+        <td class="desi" >-</td>
+        <td class="SD" id="III7">III7</td>
+        <td class="desi">-></td>
+        <td class="SD" id="rLine">VIm7</td>
+        <td id="VII251"></td>
+        <td class="desi" >-</td>
+        <td class="iRight"  id="SD6"></td>
+        <td class="SD">-></td>
+        <td class="iLeft" id="SDA3">m7</td>
+      </tr>
+    </table>
+  </div>
+</div>
+  <div>서브도미넌트 마이너 & 대리코드 강의예정</div>
 </body>
 <script src="HarmonicsHelper.jsx"></script>
 
