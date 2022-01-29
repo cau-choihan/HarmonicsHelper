@@ -45,15 +45,8 @@ document.getElementById("secondaryDominant7th").innerHTML=
   "</table>";
 }
 //클릭 반응
-function Cclick(){majorScale(intervalNum[0]);}
-function Dbclick(){majorScale(intervalNum[1]);}
-function Dclick(){majorScale(intervalNum[2]);}
-function Ebclick(){majorScale(intervalNum[3]);}
-function Eclick(){majorScale(intervalNum[4]);}
-function Fclick(){majorScale(intervalNum[5]);}
-function Gbclick(){majorScale(intervalNum[6]);}
-function Gclick(){majorScale(intervalNum[7]);}
-function Abclick(){majorScale(intervalNum[8]);}
-function Aclick(){majorScale(intervalNum[(9)]);}
-function Bbclick(){majorScale(intervalNum[10]);}
-function Bclick(){majorScale(intervalNum[11]);}
+function intervalSelect(value){
+  for(let i=0;i<12;i++){
+  if(value===interval[i]){majorScale(intervalNum[i]);}
+  }
+}

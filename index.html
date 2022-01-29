@@ -1,37 +1,52 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>
-      Harmonics Helper v1.0.0
-    </title>
-    <link rel="stylesheet" href="HarmonicsHelper.css"></link>
-  </head>
-  <body>
-    <h1>Harmonics Helper v1.0.1</h1>
-    
-    <p align="center">Dev.<b>최한</b></p>
-    <p align="center">v1.0.1패치내용 : 세컨더리 도미넌트 추가</p>
-    <span><h2 class="divider">1. major scale maker</h2></span>
-    <div>다음 프로그램은 선택한 키(key)에 맞춰 <u>Major scale</u>과 <u>Diatonic chords</u>를 보여주는 프로그램입니다.</div>
-    <br>
-    <div>자유롭게 키를 선택하세요</div>
-    <br>
-    <div class="buttonCenter">
-      <button id="C1" onclick="Cclick()">C</button>
-      <button id="C#1"onclick="Dbclick()">C#(Db)</button>
-      <button id="D1"onclick="Dclick()">D</button>
-      <button id="D#1"onclick="Ebclick()">D#(Eb)</button>
-      <button id="E1"onclick="Eclick()">E</button>
-      <button id="F1"onclick="Fclick()">F</button>
-      <button id="F#1"onclick="Gbclick()">F#(Gb)</button>
-      <button id="G1"onclick="Gclick()">G</button>
-      <button id="G#1"onclick="Abclick()">G#(Ab)</button>
-      <button id="A1"onclick="Aclick()">A</button>
-      <button id="A#1"onclick="Bbclick()">A#(Bb)</button>
-      <button id="B1"onclick="Bclick()">B</button>
-      </div>
-    <div id="majorInterval"></div>
-    <div id="secondaryDominant7th"></div>
-  </body>
-  <script src="HarmonicsHelper.jsx"></script>
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    Harmonics Helper v1.0.0
+  </title>
+  <link rel="stylesheet" href="HarmonicsHelper.css">
+  </link>
+</head>
+
+<body>
+  <h1>Harmonics Helper v1.0.1</h1>
+
+  <p>Dev.<b>최한</b></p>
+  <p>v1.0.1패치내용 : 세컨더리 도미넌트 추가</p>
+  <p>v1.0.2패치내용 : related 2-5-1 및 세컨더리 도미넌트 대리코드 추가</p>
+  <p>v1.1.2패치내용 : 페이지 인터페이스 수정</p>
+  <span>
+    <h2 class="divider">1. major scale maker</h2>
+  </span>
+  <div>선택한 major key 출력리스트 :<br/>
+  <ul>
+    <li>인터벌</li>
+    <li>다이어토닉 스케일 코드</li>
+    <li>세컨더리 도미넌트&related 2-5-1</li>
+    <li>세컨더리 도미넌트의 대리코드</li>
+  </ul>
+  </div>
+  <div>Key selection =>
+    <select id="selection" onchange="intervalSelect(this.value);">
+      <option value=" ">select..</option>
+      <option value="C" >C 도</option>
+      <option value="Db">Db</option>
+      <option value="D">D 레</option>
+      <option value="Eb">Eb</option>
+      <option value="E">E 미</option>
+      <option value="F">F 파</option>
+      <option value="Gb">Gb</option>
+      <option value="G">G 솔</option>
+      <option value="Ab">Ab</option>
+      <option value="A">A 라</option>
+      <option value="Bb">Bb</option>
+      <option value="B">B 시</option>
+    </select>
+  </div>
+  <div id="majorInterval"></div>
+  <div id="secondaryDominant7th"></div>
+</body>
+<script src="HarmonicsHelper.jsx"></script>
+
 </html>
