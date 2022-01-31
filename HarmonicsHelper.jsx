@@ -1,6 +1,8 @@
 let interval= ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
 const intervalFlat= ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
 const intervalSharp= ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const intervalFlatKor= ["도","레b","레","미b","미","파","솔b","솔","라b","라","시b","시"];
+const intervalSharpKor= ["도","도#","레","레#","미","파","파#","솔","솔#","라","라#","시"];
 let intervalNum=[0,1,2,3,4,5,6,7,8,9,10,11];
 const numSharp=["I","I#","II","II#","III","IV","IV#","V","V#","VI","VI#","VII"];
 const numFlat=["I","IIb","II","IIIb","III","IV","Vb","V","VIb","VI","VIIb","VII"];
@@ -10,23 +12,88 @@ let sharpCount=0;
 
 function sharpChange(){
   sharpCount++;
-  if(sharpCount%2==1){
-    for(let i=0;i<12;i++){
-      interval[i]=intervalSharp[i];
-    }
+  if(sharpCount%4==1){
     document.getElementById("sharpOrFlat").innerHTML="# sharp";
-  }
-  else if(sharpCount%2==0){
     for(let i=0;i<12;i++){
-      interval[i]=intervalFlat[i];
+        interval[i]=intervalSharp[i];
     }
+  }
+  else if(sharpCount%4==2){
+    document.getElementById("sharpOrFlat").innerHTML="b 한글";
+    for(let i=0;i<12;i++){
+        interval[i]=intervalFlatKor[i];
+    }
+  }
+  else if(sharpCount%4==3){
+    document.getElementById("sharpOrFlat").innerHTML="# 한글";
+    for(let i=0;i<12;i++){
+        interval[i]=intervalSharpKor[i];
+    }
+  }
+  else if(sharpCount%4==0){
     document.getElementById("sharpOrFlat").innerHTML="b flat";
+    for(let i=0;i<12;i++){
+        interval[i]=intervalFlat[i];
+    }
   }
 }
 //intervalNum 범위 고정 method
 function twelveUpdown(num){
   if(num<12){ return num; }
   else if(num>=12){ return (num-12);}
+}
+
+function intervalSelect(value){
+    parseInt(value);
+    if(sharpCount%4==1){
+        for(let i=0;i<12;i++){
+            if(intervalSharp[value]===intervalSharp[i]){
+                majorScale(intervalNum[i]);
+                secondaryDominant7th(intervalNum[i]);
+                subDominantminor(intervalNum[i]);
+                standardNum=intervalNum[i];
+              }
+            }
+      }
+      else if(sharpCount%4==2){
+        for(let i=0;i<12;i++){
+            if(intervalSharpKor[value]===intervalSharpKor[i]){
+                majorScale(intervalNum[i]);
+                secondaryDominant7th(intervalNum[i]);
+                subDominantminor(intervalNum[i]);
+                standardNum=intervalNum[i];
+              }
+              
+            }
+      }
+      else if(sharpCount%4==3){
+        for(let i=0;i<12;i++){
+            if(intervalFlatKor[value]===intervalFlatKor[i]){
+                majorScale(intervalNum[i]);
+                secondaryDominant7th(intervalNum[i]);
+                subDominantminor(intervalNum[i]);
+                standardNum=intervalNum[i];
+              }
+            }
+      }
+      else if(sharpCount%4==0){
+        for(let i=0;i<12;i++){
+            if(interval[value]===interval[i]){
+                majorScale(intervalNum[i]);
+                secondaryDominant7th(intervalNum[i]);
+                subDominantminor(intervalNum[i]);
+                standardNum=intervalNum[i];
+              }
+            }
+      }
+
+  subtituteCount=0;
+  document.getElementById("V7").innerHTML="V7";
+  document.getElementById("VI7").innerHTML="VI7";
+  document.getElementById("VII7").innerHTML="VII7";
+  document.getElementById("I7").innerHTML="I7";
+  document.getElementById("II7").innerHTML="II7";
+  document.getElementById("III7").innerHTML="III7";
 }
 //숫자를 인터벌로 변환시켜 스케일과 다이어토닉 출력하는 method
 function majorScale(i){
@@ -71,22 +138,7 @@ function secondaryDominant7thSubtitute(i){
  
 }
 //클릭 반응
-function intervalSelect(value){
-  for(let i=0;i<12;i++){
-  if(value===interval[i]){
-    majorScale(intervalNum[i]);
-    secondaryDominant7th(intervalNum[i]);
-    subDominantminor(intervalNum[i]);
-    standardNum=intervalNum[i];
-  subtituteCount=0;
-  document.getElementById("V7").innerHTML="V7";
-  document.getElementById("VI7").innerHTML="VI7";
-  document.getElementById("VII7").innerHTML="VII7";
-  document.getElementById("I7").innerHTML="I7";
-  document.getElementById("II7").innerHTML="II7";
-  document.getElementById("III7").innerHTML="III7";}
-  }
-}
+
 
 function sdClick(){
   subtituteCount++;
