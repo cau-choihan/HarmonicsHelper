@@ -19,7 +19,10 @@
   <span>
     <h2 class="divider">1. major scale maker</h2>
   </span>
-
+  <div>
+  <button id="sharpChange" onclick="sharpChange()"># change</button>
+  Mode : <span id="sharpOrFlat"></span>
+</div>
   <div>Key selection =>
     <select id="selection" onchange="intervalSelect(this.value);">
       <option value=" ">select</option>
@@ -36,6 +39,7 @@
       <option value="Bb">Bb</option>
       <option value="B">B 시</option>
     </select>
+
   </div>
   <br>
   <div id="forFlex">
@@ -158,7 +162,53 @@
     </table>
   </div>
 </div>
-  <div>서브도미넌트 마이너 & 대리코드 강의예정</div>
+<div id="forFlex">
+  <div>
+    SubDominant minor & Sustitute (강의예정)
+    <table class="Ctable">
+      <tr>
+        <td class="tabLeft">IVm</td>
+        <td class="iRight" id="SDm1"></td>
+        <td class="iLeft">m</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">IVm6</td>
+        <td class="iRight"  id="SDm2"></td>
+        <td class="iLeft">m6</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">IVm7</td>
+        <td class="iRight"  id="SDm3"></td>
+        <td class="iLeft">m7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">IIm7-5</td>
+        <td class="iRight"  id="SDm4"></td>
+        <td class="iLeft">m7-5</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">IIbM7</td>
+        <td class="iRight"  id="SDm5"></td>
+        <td class="iLeft">M7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">VIb6</td>
+        <td class="iRight"  id="SDm6"></td>
+        <td class="iLeft">6</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">VIbM7</td>
+        <td class="iRight"  id="SDm7"></td>
+        <td class="iLeft">M7</td>
+      </tr>
+      <tr>
+        <td class="tabLeft">VIIb7</td>
+        <td class="iRight"  id="SDm8"></td>
+        <td class="iLeft">7</td>
+      </tr>
+    </table>
+  </div>
+</div>
 </body>
 <script src="HarmonicsHelper.jsx"></script>
 

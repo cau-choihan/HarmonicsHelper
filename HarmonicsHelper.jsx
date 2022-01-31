@@ -1,8 +1,28 @@
 let interval= ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+const intervalFlat= ["C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B"];
+const intervalSharp= ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 let intervalNum=[0,1,2,3,4,5,6,7,8,9,10,11];
+const numSharp=["I","I#","II","II#","III","IV","IV#","V","V#","VI","VI#","VII"];
+const numFlat=["I","IIb","II","IIIb","III","IV","Vb","V","VIb","VI","VIIb","VII"];
 let subtituteCount=0;
-let standardNum;
+let standardNum;  
+let sharpCount=0;  
 
+function sharpChange(){
+  sharpCount++;
+  if(sharpCount%2==1){
+    for(let i=0;i<12;i++){
+      interval[i]=intervalSharp[i];
+    }
+    document.getElementById("sharpOrFlat").innerHTML="# sharp";
+  }
+  else if(sharpCount%2==0){
+    for(let i=0;i<12;i++){
+      interval[i]=intervalFlat[i];
+    }
+    document.getElementById("sharpOrFlat").innerHTML="b flat";
+  }
+}
 //intervalNum 범위 고정 method
 function twelveUpdown(num){
   if(num<12){ return num; }
@@ -26,7 +46,7 @@ function secondaryDominant7th(i){
   document.getElementById("SD4").innerHTML=interval[twelveUpdown(i)]+"7";
   document.getElementById("SD5").innerHTML=interval[twelveUpdown(i+2)]+"7";
   document.getElementById("SD6").innerHTML=interval[twelveUpdown(i+4)]+"7";
-  document.getElementById("SDA4").innerHTML=interval[twelveUpdown(i+2)]+"m7";
+  document.getElementById("SDA4").innerHTML=interval[twelveUpdown(i)]+"M7";
   document.getElementById("SDA5").innerHTML=interval[twelveUpdown(i+2)]+"m7";
   document.getElementById("SDA6").innerHTML=interval[twelveUpdown(i+4)]+"m7";
   document.getElementById("SDA1").innerHTML=interval[twelveUpdown(i+5)]+"M7";
@@ -56,6 +76,7 @@ function intervalSelect(value){
   if(value===interval[i]){
     majorScale(intervalNum[i]);
     secondaryDominant7th(intervalNum[i]);
+    subDominantminor(intervalNum[i]);
     standardNum=intervalNum[i];
   subtituteCount=0;
   document.getElementById("V7").innerHTML="V7";
@@ -63,7 +84,7 @@ function intervalSelect(value){
   document.getElementById("VII7").innerHTML="VII7";
   document.getElementById("I7").innerHTML="I7";
   document.getElementById("II7").innerHTML="II7";
-  document.getElementById("III7").innerHTML="IIIb7";}
+  document.getElementById("III7").innerHTML="III7";}
   }
 }
 
@@ -88,3 +109,13 @@ function sdClick(){
     document.getElementById("III7").innerHTML="IIIb7";
   }
   }
+function subDominantminor(i){
+  document.getElementById("SDm1").innerHTML=interval[twelveUpdown(i+5)];
+  document.getElementById("SDm2").innerHTML=interval[twelveUpdown(i+5)];
+  document.getElementById("SDm3").innerHTML=interval[twelveUpdown(i+5)];
+  document.getElementById("SDm4").innerHTML=interval[twelveUpdown(i+2)];
+  document.getElementById("SDm5").innerHTML=interval[twelveUpdown(i+1)];
+  document.getElementById("SDm6").innerHTML=interval[twelveUpdown(i+8)];
+  document.getElementById("SDm7").innerHTML=interval[twelveUpdown(i+8)];
+  document.getElementById("SDm8").innerHTML=interval[twelveUpdown(i+10)];
+}
